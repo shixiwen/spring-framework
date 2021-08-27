@@ -32,9 +32,7 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link Resource} implementation for {@code java.net.URL} locators.
- * Supports resolution as a {@code URL} and also as a {@code File} in
- * case of the {@code "file:"} protocol.
+ * {@code java.net.URL} 定位器的 {@link Resource} 实现。在 {@code "file:"} 协议的情况下，支持解析为 {@code URL} 和 {@code File}。
  *
  * @author Juergen Hoeller
  * @since 28.12.2003

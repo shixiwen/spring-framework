@@ -23,24 +23,21 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * {@link Resource} implementation for a given {@link InputStream}.
- * <p>Should only be used if no other specific {@code Resource} implementation
- * is applicable. In particular, prefer {@link ByteArrayResource} or any of the
- * file-based {@code Resource} implementations where possible.
+ * 给定 {@link InputStream} 的 {@link Resource} 实现。
  *
- * <p>In contrast to other {@code Resource} implementations, this is a descriptor
- * for an <i>already opened</i> resource - therefore returning {@code true} from
- * {@link #isOpen()}. Do not use an {@code InputStreamResource} if you need to
- * keep the resource descriptor somewhere, or if you need to read from a stream
- * multiple times.
+ * <p>仅当没有其他特定的 {@code Resource} 实现适用时才应使用。
+ * 特别是，在可能的情况下，更喜欢 {@link ByteArrayResource} 或任何基于文件的 {@code Resource} 实现。
+ *
+ * <p>与其他 {@code Resource} 实现相反，这是一个 <i>已打开<i> 资源的描述符 - 因此从 {@link #isOpen()} 返回 {@code true}。
+ * 如果需要将资源描述符保留在某处，或者需要多次从流中读取，请不要使用 {@code InputStreamResource}。
  *
  * @author Juergen Hoeller
  * @author Sam Brannen
- * @since 28.12.2003
  * @see ByteArrayResource
  * @see ClassPathResource
  * @see FileSystemResource
  * @see UrlResource
+ * @since 28.12.2003
  */
 public class InputStreamResource extends AbstractResource {
 
@@ -53,6 +50,7 @@ public class InputStreamResource extends AbstractResource {
 
 	/**
 	 * Create a new InputStreamResource.
+	 *
 	 * @param inputStream the InputStream to use
 	 */
 	public InputStreamResource(InputStream inputStream) {
@@ -61,6 +59,7 @@ public class InputStreamResource extends AbstractResource {
 
 	/**
 	 * Create a new InputStreamResource.
+	 *
 	 * @param inputStream the InputStream to use
 	 * @param description where the InputStream comes from
 	 */

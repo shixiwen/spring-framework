@@ -34,12 +34,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ResourceUtils;
 
 /**
- * Convenience base class for {@link Resource} implementations,
- * pre-implementing typical behavior.
+ * {@link Resource} 实现的便利基类，预实现典型行为。
  *
- * <p>The "exists" method will check whether a File or InputStream can
- * be opened; "isOpen" will always return false; "getURL" and "getFile"
- * throw an exception; and "toString" will return the description.
+ * <p>“exists”方法将检查是否可以打开文件或输入流； "isOpen" 将始终返回 false； "getURL" 和 "getFile" 抛出异常；和“toString”将返回描述
  *
  * @author Juergen Hoeller
  * @author Sam Brannen
@@ -48,15 +45,14 @@ import org.springframework.util.ResourceUtils;
 public abstract class AbstractResource implements Resource {
 
 	/**
-	 * This implementation checks whether a File can be opened,
-	 * falling back to whether an InputStream can be opened.
-	 * This will cover both directories and content resources.
+	 * 此实现检查是否可以打开 File，回退到是否可以打开 InputStream。这将涵盖目录和内容资源。
 	 */
 	@Override
 	public boolean exists() {
-		// Try file existence: can we find the file in the file system?
+		// 尝试文件存在：我们可以在文件系统中找到文件吗？
 		if (isFile()) {
 			try {
+				// 基于 File 进行判断
 				return getFile().exists();
 			}
 			catch (IOException ex) {
@@ -130,8 +126,7 @@ public abstract class AbstractResource implements Resource {
 	}
 
 	/**
-	 * This implementation throws a FileNotFoundException, assuming
-	 * that the resource cannot be resolved to an absolute file path.
+	 * 此实现会抛出 FileNotFoundException，假设资源无法解析为绝对文件路径。
 	 */
 	@Override
 	public File getFile() throws IOException {
