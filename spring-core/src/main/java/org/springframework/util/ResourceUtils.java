@@ -262,8 +262,7 @@ public abstract class ResourceUtils {
 	}
 
 	/**
-	 * Determine whether the given URL points to a resource in the file system,
-	 * i.e. has protocol "file", "vfsfile" or "vfs".
+	 * 确定给定的 URL 是否指向文件系统中的资源，即具有协议“file”、“vfsfile”或“vfs”。
 	 * @param url the URL to check
 	 * @return whether the URL has been identified as a file system URL
 	 */

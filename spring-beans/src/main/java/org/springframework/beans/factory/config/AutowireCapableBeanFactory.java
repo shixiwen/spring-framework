@@ -26,7 +26,7 @@ import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link org.springframework.beans.factory.BeanFactory} 接口的扩展将由能够自动装配的 bean 工厂实现，
+ * {@link org.springframework.beans.factory.BeanFactory} 接口的扩展将由能够自动装配的 bean 工厂实现
  * 前提是他们希望为现有 bean 实例公开此功能。
  *
  * <p>BeanFactory 的这个子接口不打算在正常的应用程序代码中使用：对于典型用例，

@@ -2491,7 +2491,7 @@ listeners. The following listing demonstrates this style of configuration:
 		TransactionalTestExecutionListener.class,
 		SqlScriptsTestExecutionListener.class
 	})
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2509,7 +2509,7 @@ listeners. The following listing demonstrates this style of configuration:
 		TransactionalTestExecutionListener::class,
 		SqlScriptsTestExecutionListener::class
 	)
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2548,7 +2548,7 @@ be replaced with the following:
 		listeners = MyCustomTestExecutionListener.class,
 		mergeMode = MERGE_WITH_DEFAULTS
 	)
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2560,7 +2560,7 @@ be replaced with the following:
 			listeners = [MyCustomTestExecutionListener::class],
 			mergeMode = MERGE_WITH_DEFAULTS
 	)
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2740,7 +2740,7 @@ a field or setter method, as the following example shows:
 .Java
 ----
 	@SpringJUnitConfig
-	class MyTest {
+	class myTest.MyTest {
 
 		@Autowired // <1>
 		ApplicationContext applicationContext;
@@ -2754,7 +2754,7 @@ a field or setter method, as the following example shows:
 .Kotlin
 ----
 	@SpringJUnitConfig
-	class MyTest {
+	class myTest.MyTest {
 
 		@Autowired // <1>
 		lateinit var applicationContext: ApplicationContext
@@ -2850,7 +2850,7 @@ path that represents a resource URL (i.e., a path prefixed with `classpath:`, `f
 	// ApplicationContext will be loaded from "/app-config.xml" and
 	// "/test-config.xml" in the root of the classpath
 	@ContextConfiguration(locations={"/app-config.xml", "/test-config.xml"}) // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2863,7 +2863,7 @@ path that represents a resource URL (i.e., a path prefixed with `classpath:`, `f
 	// ApplicationContext will be loaded from "/app-config.xml" and
 	// "/test-config.xml" in the root of the classpath
 	@ContextConfiguration("/app-config.xml", "/test-config.xml") // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2881,7 +2881,7 @@ demonstrated in the following example:
 ----
 	@ExtendWith(SpringExtension.class)
 	@ContextConfiguration({"/app-config.xml", "/test-config.xml"}) <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2892,7 +2892,7 @@ demonstrated in the following example:
 ----
 	@ExtendWith(SpringExtension::class)
 	@ContextConfiguration("/app-config.xml", "/test-config.xml") // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2903,8 +2903,8 @@ If you omit both the `locations` and the `value` attributes from the
 `@ContextConfiguration` annotation, the TestContext framework tries to detect a default
 XML resource location. Specifically, `GenericXmlContextLoader` and
 `GenericXmlWebContextLoader` detect a default location based on the name of the test
-class. If your class is named `com.example.MyTest`, `GenericXmlContextLoader` loads your
-application context from `"classpath:com/example/MyTest-context.xml"`. The following
+class. If your class is named `com.example.myTest.MyTest`, `GenericXmlContextLoader` loads your
+application context from `"classpath:com/example/myTest.MyTest-context.xml"`. The following
 example shows how to do so:
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
@@ -2912,9 +2912,9 @@ example shows how to do so:
 ----
 	@ExtendWith(SpringExtension.class)
 	// ApplicationContext will be loaded from
-	// "classpath:com/example/MyTest-context.xml"
+	// "classpath:com/example/myTest.MyTest-context.xml"
 	@ContextConfiguration // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2925,9 +2925,9 @@ example shows how to do so:
 ----
 	@ExtendWith(SpringExtension::class)
 	// ApplicationContext will be loaded from
-	// "classpath:com/example/MyTest-context.xml"
+	// "classpath:com/example/myTest.MyTest-context.xml"
 	@ContextConfiguration // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2957,7 +2957,7 @@ The following example shows how to specify Groovy configuration files:
 	// ApplicationContext will be loaded from "/AppConfig.groovy" and
 	// "/TestConfig.groovy" in the root of the classpath
 	@ContextConfiguration({"/AppConfig.groovy", "/TestConfig.Groovy"}) <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2969,7 +2969,7 @@ The following example shows how to specify Groovy configuration files:
 	// ApplicationContext will be loaded from "/AppConfig.groovy" and
 	// "/TestConfig.groovy" in the root of the classpath
 	@ContextConfiguration("/AppConfig.groovy", "/TestConfig.Groovy") // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -2980,7 +2980,7 @@ If you omit both the `locations` and `value` attributes from the `@ContextConfig
 annotation, the TestContext framework tries to detect a default Groovy script.
 Specifically, `GenericGroovyXmlContextLoader` and `GenericGroovyXmlWebContextLoader`
 detect a default location based on the name of the test class. If your class is named
-`com.example.MyTest`, the Groovy context loader loads your application context from
+`com.example.myTest.MyTest`, the Groovy context loader loads your application context from
 `"classpath:com/example/MyTestContext.groovy"`. The following example shows how to use
 the default:
 
@@ -2991,7 +2991,7 @@ the default:
 	// ApplicationContext will be loaded from
 	// "classpath:com/example/MyTestContext.groovy"
 	@ContextConfiguration // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -3004,7 +3004,7 @@ the default:
 	// ApplicationContext will be loaded from
 	// "classpath:com/example/MyTestContext.groovy"
 	@ContextConfiguration // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -3029,7 +3029,7 @@ The following listing shows how to combine both in an integration test:
 	// ApplicationContext will be loaded from
 	// "/app-config.xml" and "/TestConfig.groovy"
 	@ContextConfiguration({ "/app-config.xml", "/TestConfig.groovy" })
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -3040,7 +3040,7 @@ The following listing shows how to combine both in an integration test:
 	// ApplicationContext will be loaded from
 	// "/app-config.xml" and "/TestConfig.groovy"
 	@ContextConfiguration("/app-config.xml", "/TestConfig.groovy")
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -3060,7 +3060,7 @@ that contains references to component classes. The following example shows how t
 	@ExtendWith(SpringExtension.class)
 	// ApplicationContext will be loaded from AppConfig and TestConfig
 	@ContextConfiguration(classes = {AppConfig.class, TestConfig.class}) // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -3072,7 +3072,7 @@ that contains references to component classes. The following example shows how t
 	@ExtendWith(SpringExtension::class)
 	// ApplicationContext will be loaded from AppConfig and TestConfig
 	@ContextConfiguration(classes = [AppConfig::class, TestConfig::class]) // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -3231,7 +3231,7 @@ order in which the initializers are invoked depends on whether they implement Sp
 	@ContextConfiguration(
 		classes = TestConfig.class,
 		initializers = TestAppCtxInitializer.class) // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -3246,7 +3246,7 @@ order in which the initializers are invoked depends on whether they implement Sp
 	@ContextConfiguration(
 			classes = [TestConfig::class],
 			initializers = [TestAppCtxInitializer::class]) // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -3266,7 +3266,7 @@ files or configuration classes. The following example shows how to do so:
 	// ApplicationContext will be initialized by EntireAppInitializer
 	// which presumably registers beans in the context
 	@ContextConfiguration(initializers = EntireAppInitializer.class) <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -3279,7 +3279,7 @@ files or configuration classes. The following example shows how to do so:
 	// ApplicationContext will be initialized by EntireAppInitializer
 	// which presumably registers beans in the context
 	@ContextConfiguration(initializers = [EntireAppInitializer::class]) // <1>
-	class MyTest {
+	class myTest.MyTest {
 		// class body...
 	}
 ----
@@ -4052,8 +4052,8 @@ meta-annotation.
 If `@TestPropertySource` is declared as an empty annotation (that is, without explicit
 values for the `locations` or `properties` attributes), an attempt is made to detect a
 default properties file relative to the class that declared the annotation. For example,
-if the annotated test class is `com.example.MyTest`, the corresponding default properties
-file is `classpath:com/example/MyTest.properties`. If the default cannot be detected, an
+if the annotated test class is `com.example.myTest.MyTest`, the corresponding default properties
+file is `classpath:com/example/myTest.MyTest.properties`. If the default cannot be detected, an
 `IllegalStateException` is thrown.
 
 ====== Precedence
@@ -5905,11 +5905,11 @@ If no SQL scripts or statements are specified, an attempt is made to detect a `d
 script, depending on where `@Sql` is declared. If a default cannot be detected, an
 `IllegalStateException` is thrown.
 
-* Class-level declaration: If the annotated test class is `com.example.MyTest`, the
-  corresponding default script is `classpath:com/example/MyTest.sql`.
+* Class-level declaration: If the annotated test class is `com.example.myTest.MyTest`, the
+  corresponding default script is `classpath:com/example/myTest.MyTest.sql`.
 * Method-level declaration: If the annotated test method is named `testMethod()` and is
-  defined in the class `com.example.MyTest`, the corresponding default script is
-  `classpath:com/example/MyTest.testMethod.sql`.
+  defined in the class `com.example.myTest.MyTest`, the corresponding default script is
+  `classpath:com/example/myTest.MyTest.testMethod.sql`.
 
 [[testcontext-executing-sql-declaratively-multiple-annotations]]
 ====== Declaring Multiple `@Sql` Sets
